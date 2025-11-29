@@ -43,6 +43,8 @@ include:
   - Data Structures:
     - GNU PBDS:
       - ds/pbds.hpp
+    - 2D Partial Sums:
+      - ds/partial-sums-2D.hpp
     - Segment Tree (ZKW):
       - ds/segtree.hpp
     - Line Container:
