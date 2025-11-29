@@ -112,6 +112,8 @@ def generate_content(config):
                          'ignore_cycles to true to supress this error.')
 
     def generate_content_internal(sections, title, depth):
+        if depth == 0:
+            yield '\\clearpage'
         if depth >= 0:
             yield f'\\{LATEX_DEPTHS[depth]}{{{title}}}'
         for section in sections:
