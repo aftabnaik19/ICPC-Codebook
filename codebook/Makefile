@@ -13,4 +13,4 @@ build:
 	mkdir -p $(BUILD_DIR)
 
 content:
-	python3 content-generator.py config.yaml $(BUILD_DIR)/content.tex
+	../venv/bin/python3 content-generator.py config.yaml $(BUILD_DIR)/content.tex

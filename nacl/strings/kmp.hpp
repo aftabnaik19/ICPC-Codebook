@@ -1,5 +1,3 @@
-/// source: KACTL
-
 vector<int> pi(const string &s) {
   vector<int> p(s.size());
   for (int i = 1; i < s.size(); i++) {
