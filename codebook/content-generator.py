@@ -85,6 +85,8 @@ def generate_content(config):
         for section in sections:
             if isinstance(section, dict):
                 for subtitle, subsections in section.items():
+                    if subtitle == 'column_break':
+                        continue
                     parse_all(subsections, subtitle)
             elif isinstance(section, str):
                 path = str((Path('../nacl') / Path(section)).resolve())
@@ -118,7 +120,11 @@ def generate_content(config):
             yield f'\\{LATEX_DEPTHS[depth]}{{{title}}}'
         for section in sections:
             if isinstance(section, dict):
+                if section.get('column_break'):
+                    yield '\\break'
                 for subtitle, subsections in section.items():
+                    if subtitle == 'column_break':
+                        continue
                     yield from generate_content_internal(
                         subsections, subtitle, depth + 1)
             elif isinstance(section, str):

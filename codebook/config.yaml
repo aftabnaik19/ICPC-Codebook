@@ -225,6 +225,7 @@ include:
       - strings/manacher.hpp
     - Minimum Rotation:
       - strings/min-rotation.hpp
+    - column_break: true
     - Aho-Corasick Automaton:
       - strings/ahocorasick.hpp
     # - Palindromic Tree:
