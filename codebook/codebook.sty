@@ -14,7 +14,7 @@
 \RequirePackage{titlesec}
 \RequirePackage{tocbasic}
 \RequirePackage[x11names]{xcolor}
-\RequirePackage[margin=2.5cm,includehead,includefoot]{geometry}
+\RequirePackage[margin=2.5cm,includehead,includefoot,landscape]{geometry}
 
 % package options
 \newif\ifchinese\chinesefalse
@@ -59,7 +59,7 @@
 {0pt}{2pt plus 4pt minus 2pt}{2pt plus 2pt minus 2pt}
 
 \titleformat\section
-{\vspace{1.2ex}{\color{mygray}{\titlerule}}\vspace{.2ex}\large\bfseries}
+{\vspace{1.2ex}{\color{mygray}{\titlerule}}\vspace{.2ex}\fontsize{13pt}{15.6pt}\selectfont\bfseries}
 {\thesection.}{1em}{}
 \titleformat\subsection
 {\normalsize\bfseries}{\thesubsection.}{1em}{}
@@ -79,7 +79,7 @@
 
 \setminted{
     breaklines=false,
-    fontsize=\fontsize{7.2pt}{8.5pt}\selectfont,
+    fontsize=\fontsize{12pt}{14.5pt}\selectfont,
     frame=single,
     numbers=left,
     numbersep=2pt,
@@ -91,9 +91,10 @@
 }
 
 \renewcommand{\theFancyVerbLine}{%
-\textcolor{mygray}{\scriptsize{\arabic{FancyVerbLine}}}}
+\textcolor{mygray}{\arabic{FancyVerbLine}}}
 
 
+\setlength{\headheight}{15pt}
 \pagestyle{fancy}
 \renewcommand{\headrulewidth}{0.4pt}
 \renewcommand{\footrulewidth}{0.4pt}
@@ -113,11 +114,11 @@
 \team{Team name}{School name}
 \codetheme{default}
 
-\title{Codebook for \@teamname}
-\author{\@teamname}
+\title{\fontsize{13pt}{15.6pt}\selectfont\bfseries Codebook for \@teamname}
+\author{\fontsize{12pt}{14.4pt}\selectfont\bfseries \@teamname}
 
-\fancyhead[L]{\bfseries\small \@teamname\ (\@teaminstitution)}
-\fancyhead[R]{\bfseries\small Page \thepage}
+\fancyhead[L]{\bfseries\normalsize \@teamname\ (\@teaminstitution)}
+\fancyhead[R]{\bfseries\normalsize Page \thepage}
 \fancyfoot[C]{}
 
 \newcommand\requires[1]{%
@@ -134,5 +135,5 @@
 }
 
 \newcommand\icode[1]{%
-\texttt{\textcolor{myred}{\scriptsize{#1}}}%
+\texttt{\textcolor{myred}{\normalsize{#1}}}%
 }

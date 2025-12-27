@@ -58,8 +58,8 @@ include:
     # - Link-Cut Tree:
     #   - ds/lct.hpp
   - Graph:
-    - Modeling:
-      - graph/model.tex
+    # - Modeling:
+    #   - graph/model.tex
     - Matching/Flows:
       # - Dinic's Algorithm:
       #   - graph/flows/dinic.hpp
@@ -133,7 +133,7 @@ include:
         - math/number-theory/frac-bs.hpp
       # - Farey Sequence:
       #   - math/number-theory/farey-sequence.hpp
-    - Combinatorics:
+    # - Combinatorics:
       # - Matroid Intersection:
       #   - math/combinatorics/matroid.tex
       #   - math/combinatorics/matroid.hpp
@@ -146,11 +146,11 @@ include:
     #     - math/algebra/formal-power-series.hpp
     # - Theorems:
     #   - math/theorems.tex
-  - Numeric:
+  # - Numeric:
     # - Barrett Reduction:
     #   - numeric/barrett-reduction.hpp
-    - Long Long Multiplication:
-      - numeric/ll-mul.hpp
+      - Long Long Multiplication:
+        - numeric/ll-mul.hpp
     # - Fast Fourier Transform:
     #   - numeric/fft.hpp
     #   - numeric/fft-usage.hpp
