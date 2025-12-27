@@ -7,104 +7,50 @@ include:
       - Macros:
         - misc/speed/macros.tex
         - misc/speed/macros.hpp
-      - Fast I/O:
-        - misc/speed/fast-io.hpp
-        - Kotlin:
-          - misc/speed/kotlin-io.kt
-      - constexpr:
-        - misc/speed/constexpr.tex
-        - misc/speed/constexpr.hpp
-      - Bump Allocator:
-        - misc/speed/bump-allocator.hpp
-    - Tools:
-      - Floating Point Binary Search:
-        - misc/float-binary-search.hpp
-      - SplitMix64:
-        - misc/splitmix64.hpp
-      - '<random>':
-        - misc/random.hpp
-      - x86 Stack Hack:
-        - misc/stack-size.hpp
-    - Algorithms:
-      - Bit Hacks:
-        - misc/bit-hacks.hpp
-      # - Aliens Trick:
-      #   - misc/aliens.hpp
-      # - Hilbert Curve:
-      #   - misc/hilbert.hpp
-      - Infinite Grid Knight Distance:
-        - misc/knight.hpp
-      # - Poker Hand:
-      #   - misc/poker.hpp
-      - Longest Increasing Subsequence:
-        - misc/lis.hpp
-      - Mo's Algorithm on Tree:
-        - misc/mo-tree.hpp
   - Data Structures:
     - GNU PBDS:
       - ds/pbds.hpp
     - 2D Partial Sums:
       - ds/partial-sums-2D.hpp
+    - Sparse Table:
+      - ds/sparse-table.hpp
+    - Fenwick Tree:
+      - ds/fwt.hpp
+    - Longest Increasing Subsequence:
+      - misc/lis.hpp
+    - Xobriest:
+      - ds/xobriest.hpp
     # - Segment Tree (ZKW):
     #   - ds/segtree.hpp
     # - Line Container:
     #   - ds/line-container.hpp
     # - Li-Chao Tree:
     #   - ds/li-chao.hpp
-    - Heavy-Light Decomposition:
-      - ds/hld.hpp
+    # - Heavy-Light Decomposition:
+    #   - ds/hld.hpp
     # - Wavelet Matrix:
     #   - ds/wavelet-matrix.hpp
     # - Link-Cut Tree:
     #   - ds/lct.hpp
   - Graph:
-    # - Modeling:
-    #   - graph/model.tex
-    - Matching/Flows:
-      # - Dinic's Algorithm:
-      #   - graph/flows/dinic.hpp
-      # - Minimum Cost Flow:
-      #   - graph/flows/min-cost-flow.hpp
-      # - Gomory-Hu Tree:
-      #   - graph/flows/gomory-hu.hpp
-      # - Global Minimum Cut:
-      #   - graph/flows/global-min-cut.hpp
-      # - Bipartite Minimum Cover:
-      #   - graph/flows/min-bi-cover.hpp
-      # - Edmonds' Algorithm:
-      #   - graph/flows/edmonds.hpp
-      # - Minimum Weight Matching:
-      #   - graph/flows/min-weight-general.hpp
-      # - Stable Marriage:
-      #   - graph/flows/marriage.hpp
-      - Kuhn-Munkres algorithm:
-        - graph/flows/km.hpp
-    - Shortest Path Faster Algorithm:
-      - graph/spfa.hpp
+    - Kuhn-Munkres algorithm:
+      - graph/flows/km.hpp
+    # - Shortest Path Faster Algorithm:
+    #   - graph/spfa.hpp
     - Strongly Connected Components:
       - graph/scc.hpp
-      # - 2-Satisfiability:
-      #   - graph/2sat.hpp
     - Biconnected Components:
       - Articulation Points:
         - graph/tarjan-ap.hpp
-      - Bridges:
-        - graph/tarjan-b.hpp
-    # - Triconnected Components:
-    #   - graph/tcc.hpp
-    - Centroid Decomposition:
-      - graph/centroid-decomposition.hpp
-    # - Minimum Mean Cycle:
-    #   - graph/min-mean-cycle.hpp
-    # - Directed MST:
-    #   - graph/dmst.hpp
-    # - Maximum Clique:
-    #   - graph/clique.hpp
-    # - Dominator Tree:
-    #   - graph/dominator-tree.hpp
-    # - Manhattan Distance MST:
-    #   - graph/manhattan-mst.hpp
+      # - Bridges:
+      #   - graph/tarjan-b.hpp
+    # - Centroid Decomposition:
+    #   - graph/centroid-decomposition.hpp
   - Math:
+    - SOS DP:
+      - math/sosDP.hpp
+    - Matrix:
+      - math/matrix.hpp
     - Number Theory:
       - Mod Struct:
         - math/number-theory/modular.tex
@@ -115,42 +61,23 @@ include:
         - math/number-theory/sieve.hpp
       - Get Factors:
         - math/number-theory/all-factors.hpp
-      - Binary GCD:
-        - math/number-theory/binary-gcd.hpp
       - Extended GCD:
         - math/number-theory/extgcd.hpp
       - Chinese Remainder Theorem:
         - math/number-theory/crt.hpp
-      # - Baby-Step Giant-Step:
-      #   - math/number-theory/bsgs.hpp
-      - Pollard's Rho:
+      - Pollard Rho:
         - math/number-theory/pollard-rho.hpp
-      # - Tonelli-Shanks Algorithm:
-      #   - math/number-theory/tonelli-shanks.hpp
-      # - Chinese Sieve:
-      #   - math/number-theory/djs.hpp
-      - Rational Number Binary Search:
-        - math/number-theory/frac-bs.hpp
-      # - Farey Sequence:
-      #   - math/number-theory/farey-sequence.hpp
-    # - Combinatorics:
-      # - Matroid Intersection:
-      #   - math/combinatorics/matroid.tex
-      #   - math/combinatorics/matroid.hpp
       - De Brujin Sequence:
         - math/combinatorics/de-brujin.hpp
+      - Combinatorics:
+        - math/combinatorics/krishnaPnC.hpp
       # - Multinomial:
       #   - math/combinatorics/multinomial.hpp
-    # - Algebra:
-    #   - Formal Power Series:
-    #     - math/algebra/formal-power-series.hpp
-    # - Theorems:
-    #   - math/theorems.tex
   # - Numeric:
     # - Barrett Reduction:
     #   - numeric/barrett-reduction.hpp
-      - Long Long Multiplication:
-        - numeric/ll-mul.hpp
+      # - Long Long Multiplication:
+      #   - numeric/ll-mul.hpp
     # - Fast Fourier Transform:
     #   - numeric/fft.hpp
     #   - numeric/fft-usage.hpp
@@ -178,32 +105,34 @@ include:
     # - Simplex Algorithm:
     #   - numeric/simplex.hpp
   - Geometry:
-    - Point:
-      - geometry/point.hpp
-      - Quarternion:
-        - geometry/quaternion.hpp
-      - Spherical Coordinates:
-        - geometry/spherical.hpp
-    - Segments:
-      - geometry/segments.hpp
-    - Convex Hull:
-      - geometry/convex-hull.hpp
-      - 3D Hull:
-        - geometry/3d-hull.hpp
-    - Angular Sort:
-      - geometry/angular-sort.hpp
-    - Convex Polygon Minkowski Sum:
-      - geometry/minkowski-sum.hpp
-    - Point In Polygon:
-      - geometry/point-inclusion.hpp
-      - Convex Version:
-        - geometry/convex-inclusion.hpp
-      - Offline Multiple Points Version:
-        - geometry/multi-inclusion.hpp
-    - Closest Pair:
-      - geometry/closest-pair.hpp
-    - Minimum Enclosing Circle:
-      - geometry/min-enclosing-circle.hpp
+    - convex hull:
+      - geometry/krishna-convex.hpp
+    # - Point:
+    #   - geometry/point.hpp
+    #   - Quarternion:
+    #     - geometry/quaternion.hpp
+    #   - Spherical Coordinates:
+    #     - geometry/spherical.hpp
+    # - Segments:
+    #   - geometry/segments.hpp
+    # - Convex Hull:
+    #   - geometry/convex-hull.hpp
+    #   - 3D Hull:
+    #     - geometry/3d-hull.hpp
+    # - Angular Sort:
+    #   - geometry/angular-sort.hpp
+    # - Convex Polygon Minkowski Sum:
+    #   - geometry/minkowski-sum.hpp
+    # - Point In Polygon:
+    #   - geometry/point-inclusion.hpp
+    #   - Convex Version:
+    #     - geometry/convex-inclusion.hpp
+    #   - Offline Multiple Points Version:
+    #     - geometry/multi-inclusion.hpp
+    # - Closest Pair:
+    #   - geometry/closest-pair.hpp
+    # - Minimum Enclosing Circle:
+    #   - geometry/min-enclosing-circle.hpp
     # - Delaunay Triangulation:
     #   - geometry/delaunay.hpp
     #   - Slower Version:
@@ -221,11 +150,13 @@ include:
     #   - strings/cyk.hpp
     - Z Value:
       - strings/z-value.hpp
-    - Manacher's Algorithm:
+    - Manachers Algorithm:
       - strings/manacher.hpp
-    - Minimum Rotation:
-      - strings/min-rotation.hpp
-    - column_break: true
+    # - Minimum Rotation:
+    #   - strings/min-rotation.hpp
+    # - column_break: true
+    - Trie:
+      - strings/trie.hpp
     - Aho-Corasick Automaton:
       - strings/ahocorasick.hpp
     # - Palindromic Tree:

@@ -1,75 +1,69 @@
-struct Aho_Corasick {
-  static const int maxc = 26, maxn = 4e5;
-  struct NODES {
-    int Next[maxc], fail, ans;
-  };
-  NODES T[maxn];
-  int top, qtop, q[maxn];
-  int get_node(const int &fail) {
-    fill_n(T[top].Next, maxc, 0);
-    T[top].fail = fail;
-    T[top].ans = 0;
-    return top++;
+const int ALPHA = 26, MAXNODES = 500000 + 5;
+int nxt[MAXNODES][ALPHA];
+int linkS[MAXNODES];
+ll cntNode[MAXNODES];
+vector<int> adjSL[MAXNODES];
+vector<int> patEnd;
+int nodes = 1;
+
+void build_trie(const vector<string> &P) {
+  // clear
+  for (int i = 0; i < nodes; i++) {
+    memset(nxt[i], 0, sizeof nxt[i]);
+    cntNode[i] = 0;
+    adjSL[i].clear();
   }
-  int insert(const string &s) {
-    int ptr = 1;
-    for (char c : s) { // change char id
-      c -= 'a';
-      if (!T[ptr].Next[c]) T[ptr].Next[c] = get_node(ptr);
-      ptr = T[ptr].Next[c];
+  nodes = 1;
+  patEnd.clear();
+  patEnd.reserve(P.size());
+  // insert
+  for (auto &pat : P) {
+    int u = 0;
+    for (char ch : pat) {
+      int c = ch - 'a';
+      if (!nxt[u][c]) nxt[u][c] = nodes++;
+      u = nxt[u][c];
     }
-    return ptr;
-  } // return ans_last_place
-  void build_fail(int ptr) {
-    int tmp;
-    for (int i = 0; i < maxc; i++)
-      if (T[ptr].Next[i]) {
-        tmp = T[ptr].fail;
-        while (tmp != 1 && !T[tmp].Next[i])
-          tmp = T[tmp].fail;
-        if (T[tmp].Next[i] != T[ptr].Next[i])
-          if (T[tmp].Next[i]) tmp = T[tmp].Next[i];
-        T[T[ptr].Next[i]].fail = tmp;
-        q[qtop++] = T[ptr].Next[i];
-      }
+    patEnd.pb(u);
   }
-  void AC_auto(const string &s) {
-    int ptr = 1;
-    for (char c : s) {
-      while (ptr != 1 && !T[ptr].Next[c]) ptr = T[ptr].fail;
-      if (T[ptr].Next[c]) {
-        ptr = T[ptr].Next[c];
-        T[ptr].ans++;
-      }
+}
+vector<int> bfsOrder;
+void build_links() {
+  queue<int> q;
+  linkS[0] = 0;
+  // first layer
+  for (int c = 0; c < ALPHA; c++) {
+    int v = nxt[0][c];
+    if (v) {
+      linkS[v] = 0;
+      q.push(v);
     }
   }
-  void Solve(string &s) {
-    for (char &c : s) // change char id
-      c -= 'a';
-    for (int i = 0; i < qtop; i++) build_fail(q[i]);
-    AC_auto(s);
-    for (int i = qtop - 1; i > -1; i--)
-      T[T[q[i]].fail].ans += T[q[i]].ans;
-  }
-  void reset() {
-    qtop = top = q[0] = 1;
-    get_node(1);
-  }
-} AC;
-// usage example
-string s, S;
-int n, t, ans_place[50000];
-int main() {
-  Tie cin >> t;
-  while (t--) {
-    AC.reset();
-    cin >> S >> n;
-    for (int i = 0; i < n; i++) {
-      cin >> s;
-      ans_place[i] = AC.insert(s);
+  // BFS
+  while (!q.empty()) {
+    int u = q.front();
+    q.pop();
+    bfsOrder.pb(u);
+    for (int c = 0; c < ALPHA; c++) {
+      int v = nxt[u][c];
+      if (!v) continue;
+      int j = linkS[u];
+      while (j && !nxt[j][c]) j = linkS[j];
+      if (nxt[j][c]) j = nxt[j][c];
+      linkS[v] = j;
+      q.push(v);
     }
-    AC.Solve(S);
-    for (int i = 0; i < n; i++)
-      cout << AC.T[ans_place[i]].ans << '\n';
   }
+  for (int u : bfsOrder) { adjSL[linkS[u]].pb(u); }
+}
+
+void solve() {
+  string S;
+  ll k;
+  cin >> S >> k;
+  vector<string> P(k);
+  for (int i = 0; i < k; i++) cin >> P[i];
+  build_trie(P);
+  bfsOrder.clear();
+  build_links();
 }

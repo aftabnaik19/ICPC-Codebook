@@ -1,27 +1,29 @@
-void dfs(int x, int p) {
-  tin[x] = low[x] = ++t;
-  int ch = 0;
-  for (auto u : g[x])
-    if (u.first != p) {
-      if (!ins[u.second])
-        st.push(u.second), ins[u.second] = true;
-      if (tin[u.first]) {
-        low[x] = min(low[x], tin[u.first]);
-        continue;
-      }
-      ++ch;
-      dfs(u.first, x);
-      low[x] = min(low[x], low[u.first]);
-      if (low[u.first] >= tin[x]) {
-        cut[x] = true;
-        ++sz;
-        while (true) {
-          int e = st.top();
-          st.pop();
-          bcc[e] = sz;
-          if (e == u.second) break;
-        }
-      }
+class Solution {
+  int cnt;
+  int dfs(int u, int p, vvi &adj, vi &vis, vi &low,
+          vvi &ans) {
+    if (vis[u] != -1) return low[u];
+    vis[u] = cnt, low[u] = cnt;
+    cnt++;
+    for (auto v : adj[u]) {
+      if (v == p) continue;
+      int temp = dfs(v, u, adj, vis, low, ans);
+      low[u] = min(low[u], low[v]);
+      if (temp > vis[u]) ans.push_back({u, v});
+      else low[u] = min(low[u], vis[v]);
     }
-  if (ch == 1 && p == -1) cut[x] = false;
-}
+    return low[u];
+  }
+  vvi tarjanAlgorithm(int n, vvi &edges) {
+    vector<vector<int>> adj(n);
+    for (int i = 0; i < edges.size(); i++) {
+      int u = edges[i][0], v = edges[i][1];
+      adj[u].pb(v), adj[v].pb(u);
+    }
+    vi vis(n, -1), low(n, -1);
+    vector<vector<int>> ans;
+    cnt = 1;
+    dfs(0, -1, adj, vis, low, ans);
+    return ans;
+  }
+};
