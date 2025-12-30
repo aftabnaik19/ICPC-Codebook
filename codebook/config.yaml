@@ -169,6 +169,8 @@ include:
       - strings/trie.hpp
     - Aho-Corasick Automaton:
       - strings/ahocorasick.hpp
+    - Hashing:
+      - strings/hashing.hpp
     # - Palindromic Tree:
     #   - strings/palindromic-tree.hpp
   # - Debug List:
