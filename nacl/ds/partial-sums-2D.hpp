@@ -39,14 +39,14 @@ struct PartialSum2D : PrefixSum2D {
     int brx = ulx + size - 1, bry = uly + size - 1;
     update(ulx, uly, brx, bry, c);
   }
-  // process the grid using prefix sum
-  void process() { this->build(diff); }
+  void process() {
+    this->build(diff);
+  } // process grid using prefix sum
 };
 // usage
 PrefixSum2D pref;
 pref.build(v); // takes 2d 0-based vector as input
-pref.query(x1, y1, x2, y2); // sum of region
-
+pref.query(x1, y1, x2, y2);     // sum of region
 PartialSum2D part(n, m);        // dimension of grid 0 based
 part.update(x1, y1, x2, y2, 1); // add 1 in region
 // must run after all updates

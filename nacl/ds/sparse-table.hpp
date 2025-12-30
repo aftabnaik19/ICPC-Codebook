@@ -6,7 +6,6 @@ struct SparseTable {
   vector<int> Log;
   int n, max_log;
   long long IDENTITY_VAL; // e.g., 0 for Sum, 1 for Product,
-                          // INF for Min
   long long func(long long a, long long b) {
     return (a + b); // Example: Sum
   }
@@ -27,15 +26,13 @@ struct SparseTable {
       }
     }
   }
-  // 3. IDEMPOTENT QUERY O(1)
-  // Use for: Min, Max, GCD, OR, AND
+  // 3. IDEMPOTENT QUERY O(1) Min, Max, GCD, OR, AND
   long long query_idempotent(int l, int r) {
     int k = Log[r - l + 1];
     return func(sparse[l][k], sparse[r - (1 << k) + 1][k]);
   }
   // 4. NON-IDEMPOTENT QUERY O(log N)
   // Use for: Sum, Product, XOR, Matrix Multiplication
-  // Logic: Decomposes range [l, r] into disjoint power-of-2
   long long query_non_idempotent(int l, int r) {
     long long res = IDENTITY_VAL;
     for (int j = max_log - 1; j >= 0; --j) {

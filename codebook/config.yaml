@@ -34,6 +34,15 @@ include:
     # - Link-Cut Tree:
     #   - ds/lct.hpp
   - Graph:
+    - General:
+      - Bellman:
+        - graph/bellman.hpp
+      - Floyd:
+        - graph/floyd.hpp
+      - DSU:
+        - graph/dsu.hpp
+      - Binary Lifting:
+        - graph/binaryLifting.hpp
     - Kuhn-Munkres algorithm:
       - graph/flows/km.hpp
     # - Shortest Path Faster Algorithm:
