@@ -6,8 +6,6 @@ using ordered_set =
 tree<T, null_type, std::less<T>, rb_tree_tag,
      tree_order_statistics_node_update>;
 ordered_set<int> os;
-os.insert(5);
-os.erase(5);
 os.find_by_order(k); // iterator to k-th element (0-indexed)
 os.order_of_key(x);  // number of elements < x
 template <typename T>

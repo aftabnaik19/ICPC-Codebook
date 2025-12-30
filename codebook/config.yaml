@@ -1,13 +1,12 @@
 include:
   - Misc:
-    - Contest:
     #   - Makefile:
     #     - misc/Makefile
     # - 'How Did We Get Here?':
-      - Macros and debug:
+    - Macros and debug:
         # - misc/speed/macros.tex
-        - misc/speed/macros.hpp
-        - misc/debug-list.md
+      - misc/speed/macros.hpp
+      - misc/debug-list.md
   - Data Structures:
     - GNU PBDS:
       - ds/pbds.hpp
@@ -21,6 +20,8 @@ include:
       - misc/lis.hpp
     - Xobriest:
       - ds/xobriest.hpp
+    - Lazy:
+      - ds/lazy2.hpp
     # - Segment Tree (ZKW):
     #   - ds/segtree.hpp
     # - Line Container:
@@ -52,6 +53,8 @@ include:
     - Biconnected Components:
       - Articulation Points:
         - graph/tarjan-ap.hpp
+      - Kosaraju:
+        - graph/kosaraju.cpp
       # - Bridges:
       #   - graph/tarjan-b.hpp
     # - Centroid Decomposition:
@@ -115,7 +118,6 @@ include:
     # - Simplex Algorithm:
     #   - numeric/simplex.hpp
   - Geometry:
-    - convex hull:
       - geometry/krishna-convex.hpp
     # - Point:
     #   - geometry/point.hpp

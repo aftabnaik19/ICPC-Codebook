@@ -1,9 +1,7 @@
 // Maximum Weight Perfect Bipartite Matching
-// Detect non-perfect-matching:
-// 1. set all edge[i][j] as INF
+// Detect non-perfect-matching: // 1. set all edge[i][j] as
+// INF
 // 2. if solve() >= INF, it is not perfect matching.
-
-typedef long long ll;
 struct KM {
   static const int MAXN = 1050;
   static const ll INF = 1LL << 60;

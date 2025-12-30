@@ -3,13 +3,11 @@ struct PrefixSum2D {
   void build(const vvll &v) { // creates a copy
     int n = v.size(), m = v[0].size();
     pref.assign(n, vll(m, 0));
-    for (int i = 0; i < n; i++) {
-      for (int j = 0; j < m; j++) {
+    for (int i = 0; i < n; i++)
+      for (int j = 0; j < m; j++)
         pref[i][j] = v[i][j] + (i ? pref[i - 1][j] : 0) +
                      (j ? pref[i][j - 1] : 0) -
                      (i && j ? pref[i - 1][j - 1] : 0);
-      }
-    }
   }
   ll query(int ulx, int uly, int brx, int bry) const {
     ll ans = pref[brx][bry];

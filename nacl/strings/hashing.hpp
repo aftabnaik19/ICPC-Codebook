@@ -1,3 +1,5 @@
+#define MOD1 999119999
+#define MOD2 999999733
 struct Hasher64 {
   int n;
   vector<uint32_t> pref1, pref2, pow1, pow2;

@@ -1,14 +1,11 @@
-// Interface: 0-based indexing (Internal logic handles
-// 1-based conversion). for point updates and range query
-struct FenwickTree {
+struct fwt {
   vector<long long> bit;
   int n;
-  FenwickTree(int n) {
+  fwt(int n) {
     this->n = n + 1;
     bit.assign(n + 1, 0);
   }
-  FenwickTree(const vector<int> &a)
-      : FenwickTree(a.size()) {
+  fwt(const vector<int> &a) : fwt(a.size()) {
     for (size_t i = 0; i < a.size(); i++) add(i, a[i]);
   }
   long long sum(int idx) {
