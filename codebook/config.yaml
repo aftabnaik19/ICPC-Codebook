@@ -1,12 +1,13 @@
 include:
   - Misc:
     - Contest:
-      - Makefile:
-        - misc/Makefile
-    - 'How Did We Get Here?':
-      - Macros:
-        - misc/speed/macros.tex
+    #   - Makefile:
+    #     - misc/Makefile
+    # - 'How Did We Get Here?':
+      - Macros and debug:
+        # - misc/speed/macros.tex
         - misc/speed/macros.hpp
+        - misc/debug-list.md
   - Data Structures:
     - GNU PBDS:
       - ds/pbds.hpp
@@ -161,8 +162,7 @@ include:
       - strings/ahocorasick.hpp
     # - Palindromic Tree:
     #   - strings/palindromic-tree.hpp
-  - Debug List:
-    - misc/debug-list.md
+  # - Debug List:
 
 dependencies:
   show: true

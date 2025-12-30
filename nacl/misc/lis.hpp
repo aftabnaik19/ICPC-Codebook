@@ -1,18 +1,18 @@
-template <class I> vi lis(const vector<I> &S) {
-  if (S.empty()) return {};
-  vi prev(sz(S));
-  typedef pair<I, int> p;
-  vector<p> res;
-  rep(i, 0, sz(S)) {
-    // change 0 -> i for longest non-decreasing subsequence
-    auto it = lower_bound(all(res), p{S[i], 0});
-    if (it == res.end())
-      res.emplace_back(), it = res.end() - 1;
-    *it = {S[i], i};
-    prev[i] = it == res.begin() ? 0 : (it - 1)->second;
+int lis(vector<int> const &a) {
+  int n = a.size();
+  const int INF = 1e9;
+  vector<int> d(n + 1, INF); // min possible ending value
+  // of inc subseq of length l, that we have seen
+  d[0] = -INF;
+  // user lower bound for non-decreasing
+  for (int i = 0; i < n; i++) {
+    int l =
+    upper_bound(d.begin(), d.end(), a[i]) - d.begin();
+    if (d[l - 1] < a[i] && a[i] < d[l]) d[l] = a[i];
   }
-  int L = sz(res), cur = res.back().second;
-  vi ans(L);
-  while (L--) ans[L] = cur, cur = prev[cur];
+  int ans = 0;
+  for (int l = 0; l <= n; l++) {
+    if (d[l] < INF) ans = l;
+  }
   return ans;
 }

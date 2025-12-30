@@ -1,8 +1,15 @@
+static uint64_t seed =
+chrono::steady_clock::now().time_since_epoch().count();
+uint64_t splitmix64() {
+  seed += 0x9e3779b97f4a7c15;
+  uint64_t x = seed;
+  x = (x ^ (x >> 30)) * 0xbf58476d1ce4e5b9;
+  x = (x ^ (x >> 27)) * 0x94d049bb133111eb;
+  return x ^ (x >> 31);
+}
 long long randInRange(long long l, long long r) {
-  static random_device rd;     // seed
-  static mt19937_64 gen(rd()); // 64-bit Mersenne Twister
-  uniform_int_distribution<long long> dist(l, r);
-  return dist(gen);
+  assert(l <= r);
+  return l + splitmix64() % (r - l + 1);
 }
 void solve() {
   map<ll, pll> mp;

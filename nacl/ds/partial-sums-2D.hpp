@@ -1,7 +1,3 @@
-using vvi = vector<vector<int>>;
-using vvll = vector<vector<ll>>;
-using vll = vector<ll>;
-
 struct PrefixSum2D {
   vvll pref;                  // 0-based 2-D prefix sum
   void build(const vvll &v) { // creates a copy
@@ -40,8 +36,7 @@ struct PartialSum2D : PrefixSum2D {
     diff[brx + 1][bry + 1] += c;
   }
   void update(int ulx, int uly, int size, ll c) {
-    int brx = ulx + size - 1;
-    int bry = uly + size - 1;
+    int brx = ulx + size - 1, bry = uly + size - 1;
     update(ulx, uly, brx, bry, c);
   }
   // process the grid using prefix sum
