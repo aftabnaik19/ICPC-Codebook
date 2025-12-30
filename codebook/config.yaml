@@ -63,8 +63,8 @@ include:
       - math/matrix.hpp
     - Number Theory:
       - Mod Struct:
-        - math/number-theory/modular.tex
         - math/number-theory/modular.hpp
+        # - math/number-theory/modular.tex
       - Miller-Rabin:
         - math/number-theory/miller-rabin.hpp
       - Linear Sieve:

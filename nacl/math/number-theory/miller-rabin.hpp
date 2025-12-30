@@ -1,15 +1,36 @@
-#include "modular.hpp"
-
-// checks if Mod::MOD is prime
-bool is_prime() {
-  if (MOD < 2 || MOD % 2 == 0) return MOD == 2;
-  Mod A[] = {2, 7, 61}; // for int values (< 2^31)
-  // ll: 2, 325, 9375, 28178, 450775, 9780504, 1795265022
-  int s = __builtin_ctzll(MOD - 1), i;
-  for (Mod a : A) {
-    Mod x = a ^ (MOD >> s);
-    for (i = 0; i < s && (x + 1).v > 2; i++) x *= x;
-    if (i && x != -1) return 0;
-  }
-  return 1;
+using u128 = __uint128_t;
+using ull = unsigned long long;
+ull mod_mul(ull a, ull b, ull mod) {
+    return (u128)a * b % mod;
+}
+ull mod_pow(ull a, ull d, ull mod) {
+    ull res = 1;
+    while (d) {
+        if (d & 1) res = mod_mul(res, a, mod);
+        a = mod_mul(a, a, mod);
+        d >>= 1;
+    }
+    return res;
+}
+bool isPrime(ull n) {
+    if (n < 2) return false;
+    for (ull p : {2,3,5,7,11,13,17,19,23,29,31,37})
+        if (n % p == 0) return n == p;
+    ull d = n - 1;
+    int s = __builtin_ctzll(d);
+    d >>= s;
+    auto check = [&](ull a) {
+        ull x = mod_pow(a, d, n);
+        if (x == 1 || x == n - 1) return true;
+        for (int r = 1; r < s; r++) {
+            x = mod_mul(x, x, n);
+            if (x == n - 1) return true;
+        }
+        return false;
+    };
+    // Proven deterministic bases for 64-bit
+    // {2, 7, 61} for 32 bits
+    for (ull a : {2, 325, 9375, 28178, 450775, 9780504, 1795265022})
+        if (a < n && !check(a)) return false;
+    return true;
 }

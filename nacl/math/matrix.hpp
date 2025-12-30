@@ -21,7 +21,8 @@ struct Matrix {
         result.mat[i][j] = mat[i][j] + other.mat[i][j];
         if (mod) result.mat[i][j] %= mod;
       }
-    } return result;
+    }
+    return result;
   }
   Matrix operator-(const Matrix &other) const {
     Matrix result(rows, cols, mod);

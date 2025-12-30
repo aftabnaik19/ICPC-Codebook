@@ -1,4 +1,6 @@
-int n; vvi jump, g, adj; vi depth, val;
+int n;
+vvi jump, g, adj;
+vi depth, val;
 void dfs(int root, int parent, int currDepth) {
   depth[root] = parent == -1 ? 0 : depth[parent] + 1;
   jump[root][0] = parent;
