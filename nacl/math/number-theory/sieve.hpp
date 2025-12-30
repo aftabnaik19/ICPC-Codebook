@@ -2,7 +2,6 @@ constexpr ll MAXN = 1000000;
 bitset<MAXN> is_prime;
 vector<ll> primes;
 ll mpf[MAXN], phi[MAXN], mu[MAXN];
-
 void sieve() {
   is_prime.set();
   is_prime[1] = 0;

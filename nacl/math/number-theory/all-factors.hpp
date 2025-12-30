@@ -1,5 +1,3 @@
-#include "sieve.hpp"
-
 vector<ll> all_factors(ll n) {
   vector<ll> fac = {1};
   while (n > 1) {
